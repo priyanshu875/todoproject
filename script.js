@@ -64,7 +64,7 @@ function cancel(){
     // showtodos();
 }
 function ticktodo(index){
-    alert('Nice Job');
+    alert('Good Job!');
     let todos = localStorage.getItem('todo');
     let deletetodoObj = JSON.parse(todos);
     if(index > -1){
