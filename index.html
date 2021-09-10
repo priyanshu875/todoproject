@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <style>
+        body{
+            /* overflow: hidden; */
+            background-image: url(cool3.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        body.theme1{
+            background-image: url(cool4.png);
+        }
+        body.theme2{
+            background-image: url(cool5.png);
+        }
+        body.theme3{
+            background-image: url(cool6.png);
+        }
+        body.theme4{
+            background-image: url(cool7.png);
+        }
+        body.theme5{
+            background-image: url(cool8.png);
+        }
+
+
+        *{
+            margin: 0;
+        }
+        .todo{
+            margin: 1px;
+            /* border: 1px solid blue; */
+        }
+        .todotodobox{
+            margin: 0px;
+            padding: 0px;
+            /* border: 1px solid black; */
+            display: flex;
+            /* position: relative;
+            left: 5%; */
+            width: 80%;
+            margin-left: 6% ;
+        }
+        .hr{
+            display: none;
+            /* background-color: black;
+            margin: 0;
+            width:45%;
+            position: relative;
+            left: 5%; */
+            
+        }
+        .hr.show{
+            display: block;
+            background-color: black;
+            margin: 0;
+            width:45%;
+            position: relative;
+            left: 5%;
+            
+        }
+        
+        .todobox h1{
+            margin: 0;
+            font-size: 8rem;
+        }
+        .todobox button{
+            border: 1px solid black;
+            background: none;
+           height:2rem;
+           width: 5rem;
+           margin-top: 6rem; 
+           margin-left: 1rem;
+        }
+
+        .todoaddtextbox{
+          display: none;  
+            background: rgba(0, 0, 0, 0.9);
+            margin: 1px;
+            /* border: 1px solid green; */
+            text-align: center;
+            position: absolute;
+            top: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+        .todoaddtextbox.show{
+          display:flex;  
+            background: rgba(0, 0, 0, 0.9);
+            margin: 1px;
+            /* border: 1pc solid green; */
+            text-align: center;
+            position: absolute;
+            top: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+        #todotext{
+            margin: auto;
+            border-radius: 15px;
+            border: 5px solid black;
+            font-size: 1rem;
+        }
+        .todotextareabox{
+            position: absolute;
+            width: 100vw;
+            padding: 10px;
+            /* border: 1px solid red; */
+            margin-top: 15%;
+        }
+        .textareabtn{
+           /* border: 2px solid red; */
+           padding: 3rem;
+           display: flex;
+           justify-content:center;
+           gap: 2rem;
+        }
+        .todotextareaboxbtn {
+            position: relative;
+            bottom: 2rem;
+            /* margin-top: 2rem; */
+            border: none;
+            background-color: white;
+            color: black;
+            font-size: 1.7rem;
+            width: 7rem;
+            
+        }
+        
+        .showtodo{
+            margin-top: 1rem;
+            /* border: 1px solid black; */
+            display: flex;
+            flex-direction: column;
+        
+        }
+        .showtodobox{
+            margin: 1rem 15rem 1rem 5rem;
+            border:2px solid grey;
+            padding: 10px 0px;
+            box-shadow: 2px 3px 6px 3px grey ;
+            border-radius: 10px;
+            display: flex;
+            font-size: 2rem;
+            justify-content: space-between;
+        }
+        .showtodotext{
+            /* border: 1px solid red; */
+            margin-left: 2%;
+        }
+        .showtodoaction button{
+            border: none;
+            background: none;
+            font-size: 1.7rem;
+            margin-right: 1rem;
+        }
+        .tick{
+            width: 3rem;
+        }
+        .themebody{
+            display:none ;
+
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            /* border: 1pc solid green; */
+            height: 100vh;
+            width: 100vw;
+        }
+        .themebody.show{
+            display: block;
+            position: absolute;
+           background-image: url(cool3.png);
+            /* border: 1pc solid green; */
+            height: 100vh;
+            width: 100vw;
+        }
+        .themebox{
+            /* border: 2px solid red; */
+            width: 50vw;
+            margin: auto;
+            margin-top: 6%;
+            display: flex;
+            flex-direction: column;
+            gap: .1rem;
+            /* text-align: center; */
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+        }
+        
+        .themebox button{
+            margin: 1rem 0rem ;
+            border:2px solid black;
+            padding: 10px 0px;
+            box-shadow: 2px 3px 6px 3px darkgrey;
+            border-radius: 10px;
+            display: flex;
+            font-size: 1.5rem;
+            justify-content: space-between;
+            padding-left: 1rem;
+            width: 13rem;
+        }
+        .goback{
+            width:2rem;
+        }
+        
+        .one{
+            background-image: url(cool4.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .two{
+            background-image: url(cool5.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .three{
+            background-image: url(cool6.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .four{
+            background-image: url(cool7.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .five{
+            background-image: url(cool8.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        @media (max-width: 1200px){
+            body{
+                /* background-image: url(cool3.png); */
+                background-size:contain;
+                background-repeat:repeat;
+
+            }
+            .todo{
+                /* border: 2px solid red; */
+                height: 9rem;
+            }
+            .todotodobox{
+                /* border: 2px solid blue; */
+                margin: 0;
+                width: 100%;
+            }
+            .todobox h1{
+                /* border: 2px solid blue; */
+                margin-top: 3.5rem;
+                margin-left: .5rem;
+                font-size: 4rem;
+            }
+            .hr.show{
+                display: block;
+                background-color: darkgrey;
+                margin-top: .5rem;
+                height: 1px;
+                width: 80%;
+            }
+            .hr{
+                display: none;
+            }
+            
+            .todobox button{
+                height: 1.5rem;
+                width: 5rem;
+               margin: 0;
+                
+                margin-top:5.2rem;
+            }
+            .showtodobox{
+                margin-top:2rem;
+                margin-bottom: 0;
+                margin-left: 1rem;
+                box-shadow: 2px 2px 4px 2px grey ;
+                width: 90%;
+                height: 1rem;
+                padding-bottom: 1rem;
+                font-size: 1.2rem;
+            }
+             
+            .showtodoaction button{
+                /* border: 2px solid red; */
+                font-size: 1.1rem;
+                
+
+            }
+            
+            .todotextareabox{
+
+                height: 13rem;
+                display: flex;
+                flex-direction: column;
+                gap:3rem;
+                align-items: center;
+            }
+            .textareabtn{
+                /* border: 2px solid red; */
+                padding: 1rem;
+                display: flex;
+                justify-content:center;
+                gap: 2rem;
+            }
+            #todotext{
+                width: 80%;
+            }
+
+            .themebox{
+                justify-content: center;
+                align-items: center;
+                margin-top: 6rem;
+                /* border: 2px solid red; */
+            }
+            .themebox h1{
+                font-size: 2rem;
+            }
+            .themebox button{
+                margin: 1rem 1rem 1rem 1rem;
+                width: 80%;
+            }
+            .but{
+                margin-left:1.5rem ;
+                /* border: 1px solid red; */
+                padding: 0;
+                display: flex;
+                flex-direction:column ;
+                gap: 1px;
+                margin-top: 3rem;
+                
+            }
+            .but button{
+             margin: 2px 0rem;
+            }
+        }
+
+
+    </style>
+</head>
+<body class="theme">
+    <div class="themebody " id="themebody">
+        <div class="themebox">
+            <h1>THEMES</h1>
+            <button class="one" onclick="theme1()">Theme 1</button>
+            <button class="two" onclick="theme2()">Theme 2</button>
+            <button class="three" onclick="theme3()">Theme 3</button>
+            <button class="four" onclick="theme4()">Theme 4</button>
+            <button class="five" onclick="theme5()">Theme 5</button>
+            <button class="goback"onclick="back()">&#8678; Go Back</button>
+           
+        </div>
+    </div>
+    <div class="body">
+        <div class="todo">
+            <div class="todobox">
+                <div class="todotodobox">
+                    <h1>TO-DO </h1>
+                    
+                    <div class="but">
+                        <button class="addnew" onclick="addnew()">Add New</button>
+                        <button onclick="themechange()">Theme</button>
+                        <button onclick="allclear()">All Clear</button>
+                    </div>
+                </div>
+                <hr class="hr show" id="hr">
+            </div>
+            <div class="todoaddtextbox " id="todoaddtextbox">
+                <div class="todotextareabox">
+                    <textarea name="textarea" id="todotext" cols="70" rows="6" placeholder="What do you want to do?"></textarea>
+                    <div class="textareabtn">
+                        <button class="todotextareaboxbtn" onclick="addtodo()">Add</button>
+                        <button class="todotextareaboxbtn" onclick="cancel()">Cancel</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="showtodo" id="showtodo">
+            <div class="showtodobox" id="showtodobox">
+                <div class="showtodotext">
+                    <p><b>=></b> hey its me</p>
+                </div>
+                <div class="showtodoaction">
+                    <button  onclick="ticktodo()">&#10004;</button> <button onclick="crosstodo()" > &#10060;</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
